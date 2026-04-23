@@ -1,0 +1,22 @@
+document.getElementById("proxy-go").onclick = () => {
+  const url = document.getElementById("proxy-url").value;
+  document.getElementById("proxy-frame").src = "/proxy?url=" + encodeURIComponent(url);
+};
+
+document.getElementById("chat-send").onclick = async () => {
+  const input = document.getElementById("chat-input");
+  const text = input.value;
+  input.value = "";
+
+  const log = document.getElementById("chat-log");
+  log.innerHTML += `<div><b>You:</b> ${text}</div>`;
+
+  const res = await fetch("/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: text })
+  });
+
+  const data = await res.json();
+  log.innerHTML += `<div><b>NREX:</b> ${data.reply}</div>`;
+};

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NREX v3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>NREX v3</h1>
+
+  <h2>Proxy</h2>
+  <input id="proxy-url" placeholder="https://example.com">
+  <button id="proxy-go">Go</button>
+  <iframe id="proxy-frame"></iframe>
+
+  <h2>Chat</h2>
+  <div id="chat-log"></div>
+  <input id="chat-input" placeholder="Say something...">
+  <button id="chat-send">Send</button>
+
+  <script src="client.js"></script>
+</body>
+</html>
